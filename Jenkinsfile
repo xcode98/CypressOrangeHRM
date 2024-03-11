@@ -21,7 +21,7 @@ pipeline{
             echo "Running tests"
             // Configuración del entorno
             // Asegúrate de instalar las dependencias antes de ejecutar los tests
-            sh "/ruta/completa/a/npm install"
+            sh "/Users/frann/.nvm/versions/node/v18.19.1/bin/npm install"
             sh "npx cypress run"
         }
     }
