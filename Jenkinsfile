@@ -11,28 +11,23 @@ pipeline{
     
 
     stages{
-        stage('Build'){
-            steps{
-                echo "Building application"
-            }
+    stage('Build'){
+        steps{
+            echo "Building application"
         }
-        stage('Testing'){
-            steps{
-                echo "Running tests"
-                // Configuración del entorno
-                   // nodejs(nodeJSInstallationName: 'Node 18.19.1', configId: 'idConfigNPM') {
-                  //  sh 'npm config ls'
-                  //  }
-                    
-                    // Asegúrate de instalar las dependencias antes de ejecutar los tests
-                    sh "npm install" // o sh "npm install || exit 1" si prefieres mantener el exit 1
-                    sh "npx cypress run"
-            }
+    }
+    stage('Testing'){
+        steps{
+            echo "Running tests"
+            // Configuración del entorno
+            // Asegúrate de instalar las dependencias antes de ejecutar los tests
+            sh "/ruta/completa/a/npm install"
+            sh "npx cypress run"
         }
-        stage('Deploy'){
-            steps{
+    }
+    stage('Deploy'){
+        steps{
             echo "Deploying the app"
-            }
         }
     }
     
