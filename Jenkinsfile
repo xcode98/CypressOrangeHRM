@@ -20,9 +20,9 @@ pipeline{
             steps{
                 echo "Running tests"
                 // Configuración del entorno
-                    nodejs(nodeJSInstallationName: 'Node 18.19.1', configId: 'idConfigNPM') {
-                    sh 'npm config ls'
-                    }
+                   // nodejs(nodeJSInstallationName: 'Node 18.19.1', configId: 'idConfigNPM') {
+                  //  sh 'npm config ls'
+                  //  }
                     
                     // Asegúrate de instalar las dependencias antes de ejecutar los tests
                     sh "npm install" // o sh "npm install || exit 1" si prefieres mantener el exit 1
