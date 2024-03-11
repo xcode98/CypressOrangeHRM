@@ -8,6 +8,10 @@ pipeline{
         ansiColor('xterm')
     }
 
+    environment {
+        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${tool 'Node.js'}/bin"
+    }
+
     stages{
         stage('Build'){
             steps{
