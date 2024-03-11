@@ -1,9 +1,9 @@
 pipeline{
     agent any
-    parameters{
+    //parameters{
         //string(name: "SPEC", defaultValue: "cypress/integration/**/**", description: "Ej: cypress/integration/pageactions.feature")
         //choice(name: "BROWSER", choices:['chrome','edge','safari'], description: "Select browser")
-    }
+    //}
     options{
         ansiColor('xterm')
     }
