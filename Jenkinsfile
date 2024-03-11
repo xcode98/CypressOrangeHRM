@@ -4,13 +4,16 @@ pipeline{
         //string(name: "SPEC", defaultValue: "cypress/integration/**/**", description: "Ej: cypress/integration/pageactions.feature")
         //choice(name: "BROWSER", choices:['chrome','edge','safari'], description: "Select browser")
     //}
+
+    tools {
+        nodejs 'node' // Cambiado de 'node' a 'nodejs'
+    }
+
     options{
         ansiColor('xterm')
     }
 
-    tools {
-        node 'node'
-    }
+    
 
     stages {
         stage('Build') {
