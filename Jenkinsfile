@@ -10,27 +10,29 @@ pipeline{
 
     
 
-    stages{
-    stage('Build'){
-        steps{
-            echo "Building application"
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building application"
+            }
         }
-    }
-    stage('Testing'){
-        steps{
-            echo "Running tests"
-            // Configuración del entorno
-            // Asegúrate de instalar las dependencias antes de ejecutar los tests
-            sh "/Users/frann/.nvm/versions/node/v18.19.1/bin/npm install"
-            sh "npx cypress run"
+        stage('Testing') {
+            steps {
+                echo "Running tests"
+                // Configuración del entorno
+                script {
+                    def nodePath = sh(script: 'which node', returnStdout: true).trim()
+                    env.PATH = "${nodePath}:${env.PATH}"
+                }
+                sh "/Users/frann/.nvm/versions/node/v18.19.1/bin/npm install"
+                sh "npx cypress run"
+            }
         }
-    }
-    stage('Deploy'){
-        steps{
-            echo "Deploying the app"
+        stage('Deploy') {
+            steps {
+                echo "Deploying the app"
+            }
         }
-    }
-    
 }
 
     post{
