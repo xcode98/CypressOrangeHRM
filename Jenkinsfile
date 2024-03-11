@@ -18,10 +18,10 @@ pipeline{
             steps{
                 echo "Running tests"
                 // Configuración del entorno
-                    env.PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+                    //env.PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
                     
                     // Asegúrate de instalar las dependencias antes de ejecutar los tests
-                    sh "npm ci" // o sh "npm install || exit 1" si prefieres mantener el exit 1
+                    sh "npm install" // o sh "npm install || exit 1" si prefieres mantener el exit 1
                     sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
