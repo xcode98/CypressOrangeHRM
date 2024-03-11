@@ -20,12 +20,13 @@ pipeline{
                 sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
-    }
-    stage('Deploy'){
-        steps{
+        stage('Deploy'){
+            steps{
             echo "Deploying the app"
+            }
         }
     }
+    
 }
 
 post{
