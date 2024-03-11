@@ -24,7 +24,7 @@ pipeline{
                     
                     // Asegúrate de instalar las dependencias antes de ejecutar los tests
                     sh "npm install" // o sh "npm install || exit 1" si prefieres mantener el exit 1
-                    sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                    sh "npx cypress run"
             }
         }
         stage('Deploy'){
