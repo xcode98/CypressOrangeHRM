@@ -26,8 +26,9 @@ pipeline{
                 echo "Running tests"
                 // Configuración del entorno
                 
+                
                 sh "npm install"
-                sh "npx cypress run"
+                sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
         stage('Deploy') {
@@ -39,7 +40,7 @@ pipeline{
 
     post{
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/cucumber-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/cucumber-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '',useWrapperFileDirectly: true])
         }
     }
 }
