@@ -1,12 +1,12 @@
 pipeline{
     agent any
-    //parameters{
-        //string(name: "SPEC", defaultValue: "cypress/integration/**/**", description: "Ej: cypress/integration/pageactions.feature")
-        //choice(name: "BROWSER", choices:['chrome','edge','safari'], description: "Select browser")
-    //}
+    parameters{
+        string(name: "SPEC", defaultValue: "cypress/integration/pageactions.feature", description: "Ej: cypress/integration/pageactions.feature")
+        choice(name: "BROWSER", choices:['chrome','edge','safari'], description: "Select browser")
+    }
 
     tools {
-        nodejs 'node' // Cambiado de 'node' a 'nodejs'
+        nodejs 'node' 
     }
 
     options{
@@ -37,9 +37,9 @@ pipeline{
         }
 }
 
-    // post{
-    //     always {
-    //         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-    //     }
-    // }
+    post{
+        always {
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/cucumber-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        }
+    }
 }
