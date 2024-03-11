@@ -2,7 +2,7 @@ pipeline{
     agent any
     parameters{
         string(name: "SPEC", defaultValue: "cypress/integration/pageactions.feature", description: "Ej: cypress/integration/pageactions.feature")
-        choice(name: "BROWSER", choices:['chrome','edge','safari'], description: "Select browser")
+        choice(name: "BROWSER", choices:['chrome','firefox','safari'], description: "Select browser")
     }
 
     tools {
