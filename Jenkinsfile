@@ -8,9 +8,7 @@ pipeline{
         ansiColor('xterm')
     }
 
-    environment {
-        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${tool 'Node.js'}/bin"
-    }
+    
 
     stages{
         stage('Build'){
@@ -22,7 +20,7 @@ pipeline{
             steps{
                 echo "Running tests"
                 // Configuración del entorno
-                    //env.PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+                    env.PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
                     
                     // Asegúrate de instalar las dependencias antes de ejecutar los tests
                     sh "npm install" // o sh "npm install || exit 1" si prefieres mantener el exit 1
